@@ -24,6 +24,8 @@ namespace konversiExcelDanPdf.Controllers {
         SaldoAkhir = 0
       };
       return View(accountViewModel);
+      //Account account = accountRepository.GetById(id);
+      //return View();
     }
     [HttpPost]
     public IActionResult Index(AccountViewModel model) {
@@ -32,8 +34,10 @@ namespace konversiExcelDanPdf.Controllers {
         Account account = accountRepository.GetById(model.Id);
         withdraw = model.Transaksi;
         int result = account.Saldo - withdraw;
-        model.SaldoAkhir = result;
+        model.SaldoAkhir = result;        
         if(result >= 0) {
+          account.Saldo = model.SaldoAkhir;
+          accountRepository.SaldoChanges(account);
           return View("Konfirmasi", model);
         }
         ModelState.AddModelError(string.Empty, "Terjadi kesalahan pada input Penarikan");

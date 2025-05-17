@@ -10,7 +10,7 @@ namespace konversiExcelDanPdf {
       /* ============================== services ============================== */
       var builder = WebApplication.CreateBuilder(args);
       builder.Services.AddControllersWithViews();
-      builder.Services.AddSingleton<IAccountRepository, AccountRepository>();
+      builder.Services.AddSingleton<IAccountRepository, AccountSqlServerRepository>();
       /* ============================== pipeline ============================== */
       var app = builder.Build();
       if (!app.Environment.IsDevelopment()){

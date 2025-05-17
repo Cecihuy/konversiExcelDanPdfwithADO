@@ -1,0 +1,57 @@
+﻿
+create database AegisPhaseTwo;
+
+1 -----------------------------------------------------
+
+use AegisPhaseTwo;
+
+1 -----------------------------------------------------
+
+CREATE TABLE Account (
+    Id            INT           NOT NULL,
+    NomorRekening NVARCHAR (50) NULL,
+    Nama          NVARCHAR (50) NULL,
+    Saldo         INT           NULL,
+    PRIMARY KEY CLUSTERED (Id ASC)
+);
+
+2 -----------------------------------------------------
+
+INSERT INTO Account (Id, NomorRekening, Nama, Saldo) VALUES (1, 'YJ123', 'Yujin', 444000)
+INSERT INTO Account (Id, NomorRekening, Nama, Saldo) VALUES (2, 'GL234', 'Gaeul', 555000)
+INSERT INTO Account (Id, NomorRekening, Nama, Saldo) VALUES (3, 'RI345', 'Rei', 666000)
+INSERT INTO Account (Id, NomorRekening, Nama, Saldo) VALUES (4, 'WY456', 'Wonyoung', 777000)
+INSERT INTO Account (Id, NomorRekening, Nama, Saldo) VALUES (5, 'LZ567', 'Liz', 888000)
+INSERT INTO Account (Id, NomorRekening, Nama, Saldo) VALUES (6, 'LS678', 'Leeseo', 999000)
+
+3 -----------------------------------------------------
+
+create procedure spGetById
+@id int
+as
+begin
+	with cteTable
+	as
+	(
+		select * from Account as cteTable
+	)
+	select * from cteTable where id = @id
+end
+
+4 -----------------------------------------------------
+
+create procedure spSaldoChanges
+@id int,
+@updateSaldo int
+as
+begin
+	with cteTable (cteSaldoColumn)
+	as
+	(
+		select saldo as cteSaldoColumn from Account as cteTable
+		where id = @id
+	)
+	update cteTable set cteSaldoColumn = @updateSaldo
+end
+
+5 -----------------------------------------------------

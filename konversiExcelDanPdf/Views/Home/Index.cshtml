@@ -1,10 +1,11 @@
-﻿@model konversiExcelDanPdf.ViewModels.AccountViewModel
-@{
-    ViewData["Title"] = "Home Page";
-}
-<div class="">
+﻿
+    @model konversiExcelDanPdf.ViewModels.AccountViewModel
+    @{
+        ViewData["Title"] = "Home Page";
+    }
+    <div class="">
   <h1 class="display-4">Selamat Datang</h1>
-  <form method="post">    
+  <form method="post">
     <input hidden asp-for="Id" />
     <div asp-validation-summary="All" class="text-danger"></div>
     <div>
@@ -25,4 +26,4 @@
     </div>
     <button type="submit" class="btn btn-primary">Prosess</button>
   </form>
-</div>
+  </div>

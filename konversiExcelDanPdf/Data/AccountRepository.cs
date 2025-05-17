@@ -19,5 +19,9 @@ namespace konversiExcelDanPdf.Data {
       Account? artist = accounts.FirstOrDefault(x => x.Id == id);
       return artist;
     }
+    public void SaldoChanges(Account updated) {
+      //Account? account = accounts.FirstOrDefault(x => x.Id == updated.Id);
+      //account.Saldo = updated.Saldo;
+    }
   }
 }
