@@ -1,0 +1,24 @@
+﻿@model konversiExcelDanPdf.ViewModels.AccountViewModel
+@{
+}
+<div class="">
+  <h1 class="display-4">Terima Kasih</h1>
+  <form method="post">
+    <input hidden asp-for="Id" />
+    <div>
+      <label asp-for="NomorRekening">Nomor Rekening Anda : @Model.NomorRekening </label>
+    </div>
+    <div>
+      <label asp-for="Nama">Nama : @Model.Nama</label>
+    </div>
+    <div>
+      <label asp-for="SaldoAwal">Saldo Awal : @Model.SaldoAwal</label>
+    </div>
+    <div>
+      <label>Jumlah Penarikan : @Model.Transaksi</label>
+    </div>
+    <div>
+      <label>Jumlah Saldo Akhir : @Model.SaldoAkhir</label>
+    </div>
+  </form>
+</div>

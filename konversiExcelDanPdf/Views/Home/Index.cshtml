@@ -1,0 +1,28 @@
+﻿@model konversiExcelDanPdf.ViewModels.AccountViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="">
+  <h1 class="display-4">Selamat Datang</h1>
+  <form method="post">    
+    <input hidden asp-for="Id" />
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div>
+      <input hidden asp-for="NomorRekening" />
+      <label asp-for="NomorRekening">Nomor Rekening Anda : @Model.NomorRekening </label>
+    </div>
+    <div>
+      <input hidden asp-for="Nama" />
+      <label asp-for="Nama">Nama : @Model.Nama</label>
+    </div>
+    <div>
+      <input hidden asp-for="SaldoAwal" />
+      <label asp-for="SaldoAwal">Saldo : @Model.SaldoAwal</label>
+    </div>
+    <div>
+      <label asp>Jumlah Penarikan : </label>
+      <input type="text" asp-for="Transaksi" />
+    </div>
+    <button type="submit" class="btn btn-primary">Prosess</button>
+  </form>
+</div>

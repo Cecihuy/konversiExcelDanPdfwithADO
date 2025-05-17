@@ -1,0 +1,40 @@
+﻿@model konversiExcelDanPdf.ViewModels.AccountViewModel
+@{
+//var withdraw = 0;
+//var modelArtist = this.Model;
+//if(ViewData.Any()) {
+//  withdraw = (int)ViewData["Withdraw"];//as konversiExcelDanPdf.ViewModels.AccountViewModel;
+//  modelArtist = ViewData["Model"] as konversiExcelDanPdf.ViewModels.AccountViewModel;
+//} else {
+//  withdraw = 0;
+//  modelArtist = this.Model;
+//}
+}
+<div class="">
+  <h1 class="display-4">Konfirmasi</h1>
+  <form method="get">
+    <input hidden asp-for="Id" />
+    <div>
+      <input hidden asp-for="NomorRekening" />
+      <label asp-for="NomorRekening">Nomor Rekening Anda : @Model.NomorRekening </label>
+    </div>
+    <div>
+      <input hidden asp-for="Nama" />
+      <label asp-for="Nama">Nama : @Model.Nama</label>
+    </div>
+    <div>
+      <input hidden asp-for="SaldoAwal" />
+      <label asp-for="SaldoAwal">Saldo Awal : @Model.SaldoAwal</label>
+    </div>
+    <div>
+      <input hidden asp-for="Transaksi" />
+      <label>Jumlah Penarikan : @Model.Transaksi</label>
+    </div>
+    <div>
+      <input hidden asp-for="SaldoAkhir" />
+      <label>Jumlah Saldo Akhir : @Model.SaldoAkhir</label>
+    </div>
+    <button type="submit" asp-controller="Home" asp-action="GetExcel" class="btn btn-primary">Cetak Excel</button>
+    <button type="submit" asp-controller="Home" asp-action="GetPdf" class="btn btn-primary">Cetak PDF</button>
+  </form>
+</div>
