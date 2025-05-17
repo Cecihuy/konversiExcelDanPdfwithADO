@@ -5,7 +5,7 @@ create database AegisPhaseTwo;
 
 use AegisPhaseTwo;
 
-1 -----------------------------------------------------
+2 -----------------------------------------------------
 
 CREATE TABLE Account (
     Id            INT           NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE Account (
     PRIMARY KEY CLUSTERED (Id ASC)
 );
 
-2 -----------------------------------------------------
+3 -----------------------------------------------------
 
 INSERT INTO Account (Id, NomorRekening, Nama, Saldo) VALUES (1, 'YJ123', 'Yujin', 444000)
 INSERT INTO Account (Id, NomorRekening, Nama, Saldo) VALUES (2, 'GL234', 'Gaeul', 555000)
@@ -24,7 +24,7 @@ INSERT INTO Account (Id, NomorRekening, Nama, Saldo) VALUES (4, 'WY456', 'Wonyou
 INSERT INTO Account (Id, NomorRekening, Nama, Saldo) VALUES (5, 'LZ567', 'Liz', 888000)
 INSERT INTO Account (Id, NomorRekening, Nama, Saldo) VALUES (6, 'LS678', 'Leeseo', 999000)
 
-3 -----------------------------------------------------
+4 -----------------------------------------------------
 
 create procedure spGetById
 @id int
@@ -38,7 +38,7 @@ begin
 	select * from cteTable where id = @id
 end
 
-4 -----------------------------------------------------
+5 -----------------------------------------------------
 
 create procedure spSaldoChanges
 @id int,
@@ -54,4 +54,4 @@ begin
 	update cteTable set cteSaldoColumn = @updateSaldo
 end
 
-5 -----------------------------------------------------
+6 -----------------------------------------------------
